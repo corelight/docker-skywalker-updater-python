@@ -1,9 +1,13 @@
 
 FROM python:3.8.0-buster
+
+WORKDIR /app
+
 COPY . .
-RUN pip install pipenv
+RUN ls
 
-RUN pipenv install
+RUN cat requirements.txt
 
+RUN pip install -r requirements.txt
 
-
+CMD ["python", "main.py"]
