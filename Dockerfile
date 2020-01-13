@@ -1,15 +1,13 @@
 
-FROM python:3.7-alpine
+FROM python:3.7
 
 WORKDIR /app
 
 COPY . .
 RUN ls
 
-RUN apk add --update python py-pip             && \
-    pip install --upgrade awscli python-gitlab && \
-    apk --purge del py-pip                     && \
-    rm /var/cache/apk/*
+RUN pip install --upgrade awscli
+
 
 RUN pip install pipenv
 
