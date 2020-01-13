@@ -23,4 +23,4 @@ RUN cat requirements.txt | echo
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "main.py"]
+ENTRYPOINT ["/bin/bash", "-l", "-c"]
