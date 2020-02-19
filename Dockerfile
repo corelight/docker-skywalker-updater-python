@@ -1,24 +1,9 @@
-
 FROM python:3.7
-
 WORKDIR /app
 
-COPY . .
-RUN ls
+COPY Pipfile* ./
 
-RUN pip install --upgrade awscli
+RUN pip install --upgrade awscli pipenv && \
+    pipenv lock --requirements | pip install -r /dev/stdin
 
-
-RUN pip install pipenv
-
-RUN cat Pipfile
-
-RUN pipenv lock --requirements > requirements.txt
-
-RUN ls
-
-RUN cat requirements.txt | echo
-
-RUN pip install -r requirements.txt
-
-ENTRYPOINT ["/bin/bash", "-l", "-c"]
+ENTRYPOINT [""] # negate upstream python entrypoint
