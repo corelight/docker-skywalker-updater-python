@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 crossplane = "*"
 boto3 = "*"
+mako = "*"
 
 [requires]
 python_version = "3.7"
