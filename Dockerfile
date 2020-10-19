@@ -3,7 +3,7 @@ FROM vault:1.5.3
 
 RUN apk add python3 && \
     apk add py3-pip && \
-    bash jq && \
+    apk add bash jq && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     ln -s /usr/bin/pip3 /usr/bin/pip
 
